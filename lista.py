@@ -1,5 +1,8 @@
 """
 Esse código tem a intenção de implementar listas em python! (As de verdade)
+
+ALUNO: Vitor Leite de Camargo
+
 """
 
 class Elemento:
