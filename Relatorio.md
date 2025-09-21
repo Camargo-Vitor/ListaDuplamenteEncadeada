@@ -86,3 +86,8 @@ minha_lista.ExcluirAtual()
 minha_lista.mostra_lista()
 # Saída: | 10 | 99 | 30 | 
 print(f"Cursor foi para o anterior: {minha_lista.acessarAtual()}") # Saída: Cursor foi para o anterior: 10
+```
+
+## Considerações Finais
+
+Grande parte dos casos especiais e maiores peculiaridades da implementação estão descritas em cada um dos *métodos* da classe Lista, dê uma olhada!
