@@ -78,7 +78,7 @@ class Lista:
 
     def acessarAtual(self):
         """
-        Retorna o valor do elemento para o qual o `cursor` aponta
+        Retorna o valor do elemento para o qual o `cursor` aponta. Caso esteja aterrado, retorna None.
         """
         if self.__cursor:
             return self.__cursor.elemento
@@ -87,6 +87,7 @@ class Lista:
     def InserirAntesDoAtual(self, novo: int) -> None:
         """
         Insere um `novo` elemento na lista antes do elemento apontado pelo `cursor`, que é redirecionado para esse novo elemento.
+        O cursor não pode estar aterrado para essa operação (Lista Vazia).
         """
         if self.__cursor is None:
             return
@@ -104,12 +105,13 @@ class Lista:
         self.__cursor.ant = novo_elemento
 
         self.__tamanho += 1
-        self.__retrocederKPosições(1)
+        self.__retrocederKPosições(1)   
 
 
     def InserirApósAtual(self, novo: int) -> None:
         """
         Insere um `novo` elemento na lista após o elemento apontado pelo `cursor`, que é redirecionado para esse novo elemento.
+        O cursor não pode estar aterrado para essa operação (Lista Vazia).
         """
         if self.__cursor is None:
             return
@@ -167,7 +169,8 @@ class Lista:
 
     def inserirNaPosicao (self, k: int, novo:int) -> None:
         """
-        Insere um `novo` elemento no na posição `k`, se a posição for válida (k <= tamanho da lista)
+        Caso a posição seja válida (0 <= k <= tamanho da lista),
+        insere um `novo` elemento no na posição `k` e redireciona o cursor para esse elemento.
         """
         if k == 0:
             self.inserirComoPrimeiro(novo)
@@ -175,7 +178,7 @@ class Lista:
         elif k == self.__tamanho:
             self.inserirComoUltimo(novo)
             return
-        elif k > self.__tamanho - 1:
+        elif k > self.__tamanho - 1 or k < 0:
             return
 
         if (k >= self.__tamanho / 2):
@@ -227,9 +230,9 @@ class Lista:
     def ExcluirAtual(self) -> None:
         """
         Exclui o elemento apontado pelo `cursor`. Caso a lista seja unitária, chama o método `ExcluirPrim`.
-        Ao fim, o `cursor` apontará para o anterior do excluido.
+        Ao fim, o `cursor` apontará para o anterior do excluido. Caso o cursor esteja aterrado, retorna None.
         """
-        if self.__inicio is None:
+        if (self.__inicio is None) or (self.__cursor is None):
             return None
         elif self.__cursor == self.__inicio:
             self.ExcluirPrim()
