@@ -2,6 +2,8 @@
 
 Este projeto apresenta uma implementação completa e robusta da estrutura de dados de Lista Duplamente Encadeada, desenvolvida em Python. O objetivo foi criar uma classe `Lista` funcional, eficiente e com uma interface bem definida, utilizando um cursor para manipulação avançada dos elementos.
 
+Aluno: Vitor Leite de Camargo
+
 ## 1. Estrutura de Dados
 
 A implementação é baseada em duas classes: `Elemento`, que representa o individual, e `Lista`, que manipulas todos os elementos.
